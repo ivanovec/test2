@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	form#lcases.aui(method='post', action='/del')
+		table.aui
+			thead: tr
+				th#basic-number: input#cbOne.checkbox(type='checkbox' name='cbOne')
+				th#basic-fname ID
+				th#basic-lname Summary
+			tbody
+				- each item,i  in results
+					tr
+						td(width=10)
+							input.checkbox(type='checkbox', name=item['id'])
+						td(width=50)= 'T'+(i+1)
+						td= item['summary']
+		p
+			input(type='submit', value='Delete')
+			a(href='/add') Add test case

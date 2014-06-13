@@ -1,0 +1,46 @@
+{
+  // This is the default environment. To change your app to use
+  // a different env, set NODE_ENV (http://expressjs.com/api.html#app.configure)
+  "development": {
+
+    // this is the port your Express server will listen on
+    "port": 3000,
+
+    // node-ap3 currently provides two types (memory and postgres) of stores
+    // to store the host client information (i.e., client key, host public
+    // key, etc.)
+    "store": {
+      "type": "memory"
+    },
+    // "store": {
+    //   "type": "postgres",
+    //   "connection": "postgres://tpettersen@localhost/wordcloud0"
+    // },
+
+    // Your add-on will be registered with the following hosts upon startup.
+    // In order to take advantage of the automatic registration/deregistration,
+    // you need to make sure that your express app calls `plugin.register()`
+    // (see app.js). Also, you don't need to specify the user/pwd in the URL
+    // as in the examples below. If you don't provide a user/pwd, you will be
+    // prompted the first time you start the server.
+    "hosts": [
+      "http://admin:admin@localhost:1990/confluence",
+      "http://admin:admin@localhost:2990/jira"
+    ]
+  },
+
+  "production": {
+    "port": "$PORT",
+    "localBaseUrl": "https://confluence-wordcloud-macro.herokuapp.com",
+    "store": {
+      "type": "postgres",
+      "connection": "$DATABASE_URL"      
+    },
+    "whitelist": [
+      "*.atlassian.net",
+      "*.jira.com",
+      "*.jira-dev.com",
+      "*.localtunnel.com"
+    ]
+  }
+}

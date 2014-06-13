@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	form#addcase.aui(action='/save', method='post')
+		h3 Add test case
+		fieldset
+			div.field-group
+				label(for='summary') Summary
+				input#summary.text(type='text', name='summary', title='summary')
+			div.field-group
+				label(for='desc') Description
+				textarea#desc.textarea(name='description')
+		div.buttons-container: div.buttons
+			a.cancel(href='/start') Cancel
+			input#save(class='button submit', type='submit', value='Save')

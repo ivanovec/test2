@@ -1,0 +1,40 @@
+{
+     "name": "ACS",
+     "description": "Atlassian Connect add-on",
+     "key": "com.ivanovec.acs1",
+     "baseUrl": "http://localhost:3000",
+     "vendor": {
+         "name": "Example, Inc.",
+         "url": "http://ivanovec.tk"
+     },
+     "authentication": {
+         "type": "none"
+     },
+     "version": "1.0",
+     "modules": {
+         "generalPages": [
+			{
+				"conditions":[
+					{
+						"condition":"/cond"
+					}
+				],
+                "url": "/start",
+                "key": "acs1",
+                "name": {
+                    "value": "ACS"
+                }
+            }
+        ],
+		"adminPages":[
+			"url": "/admin"
+		],
+		"configurePage":{
+			"key":"configure-me",
+			"url": "/config",
+			"name": {
+				"value": "config"
+			}
+		}
+     }
+ }
