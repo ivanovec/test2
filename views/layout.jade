@@ -6,6 +6,13 @@ html
 		link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/aui/5.2-m6/css/aui.css', media='all')
 		script(src='http://vnvc:2990/jira/atlassian-connect/all.js', data-options='sizeToParent:true')
 		script(src='//cdnjs.cloudflare.com/ajax/libs/aui/5.2-m6/js/aui-all.js')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
 	body
 		div.ac-content
-			block content
+			h1 Tittle
+			div.aui-tabs.horizontal-tabs
+				ul.tabs-menu
+					li.menu-item.active-tab: a(href='#tabs-example-first'): strong Test Plans
+					li.menu-item: a(href='#tabs-example-second'): strong Test Cases
+					li.menu-item: a(href='#tabs-example-third'): strong Checklists
+				block content

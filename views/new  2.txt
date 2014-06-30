@@ -1,0 +1,3 @@
+					//li(class=tab=='tabs-example-first'?'menu-item active-tab':'menu-item'): a(href='#tabs-example-first'): strong Test Plans
+					//li(class=tab=='tabs-example-second'?'menu-item active-tab':'menu-item'): a(href='#tabs-example-second'): strong Test Cases
+					//li(class=tab=='tabs-example-third'?'menu-item active-tab':'menu-item'): a(href='#tabs-example-third'): strong Checklists

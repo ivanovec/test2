@@ -4,6 +4,7 @@ var router = express.Router();
 var db = require('../db'),
 	config = require('../config'),
 	helper = require('../helper');
+	//test = require('../../goog/test');
  
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -12,10 +13,10 @@ router.get('/', function(req, res) {
 
 /* Alternative index */
 router.get(config.url.index, function(req, res) {
-	console.log(req.query.user_id);
+	//console.log(req.query.user_id);
 	db.get(config.query.selectCases, function(results){
-		//console.log(results);
-		res.render('start', {results: results});
+		console.log(req.params);		
+		res.render('start', {results: results, tab: req.params.tab});
 	});
 });
 
@@ -27,7 +28,7 @@ router.get(config.url.caseForm, function(req, res) {
 /* Save to db */
 router.post(config.url.addCase, function(req, res) {
 	db.set(config.query.addCasesQ, req.body, function(){
-		res.redirect(config.url.index);	
+		res.redirect(config.url.indexCases);	
 	}); 
 	console.log(req.body);
 	
@@ -39,7 +40,7 @@ router.post(config.url.delCases, function(req, res) {
 	var ids = helper.prepareJsonToQuery(req.body);
 	console.log(ids);
 	db.del(config.query.delCases+ids, function(){
-		res.redirect(config.url.index);
+		res.redirect(config.url.indexCases);
 	}); 
 });
 
@@ -72,4 +73,10 @@ router.get('/config', function(req, res){
 	res.end();
 });
 
+router.get('/redirect', function(req, res){
+	console.log(req.query.code);
+	//test.oauth(req.query.code, console.log);
+	res.write('test');
+	res.end();
+});
 module.exports = router;
